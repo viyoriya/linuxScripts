@@ -1,0 +1,8 @@
+{
+"globals":
+    {
+        "background": "#2e3440",
+        "foreground": "#d8dee9",
+        "caret": "#d8dee9"
+    }
+}

@@ -1,0 +1,35 @@
+============ clear Recent files  ===================
+rm ~/.local/share/recently-used.xbe*
+touch ~/.local/share/recently-used.xbel
+============ clear logs ============================
+su 
+> /var/log/wtmp
+> /var/log/btmp
+> /var/log/lastlog
+> /var/log/eopkg.log
+dmesg -c
+============== tracker miner autostart files =====
+echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-extract.desktop
+echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-miner-apps.desktop
+echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-miner-fs.desktop
+echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-miner-user-guides.desktop
+echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-store.desktop
+
+gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2
+gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false
+
+tracker reset --hard
+
+tracker daemon -k  
+tracker status
+tracker daemon
+
+create auto startup ==> tracker daemon -k  
+========== swappiness ===========================
+cat /proc/sys/vm/swappiness
+open the file and set to 10
+========= journald =============================
+sudo systemctl kill --kill-who=main --signal=SIGUSR2 systemd-journald.service
+sudo systemctl restart systemd-journald.service
+sudo journalctl --vacuum-time=2d
+================================================

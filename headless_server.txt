@@ -1,0 +1,15 @@
+=================== start sshd ===============
+sudo eopkg it openssh-server
+systemctl status sshd.service 
+sudo systemctl enable sshd
+
+systemctl get-default 
+sudo systemctl set-default multi-user.target
+systemctl get-default
+
+=================== revert back ==============
+sudo systemctl set-default graphical.target
+
+=================== stop sshd ================
+sudo systemctl disable sshd
+systemctl stop sshd.service
