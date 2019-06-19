@@ -1,0 +1,45 @@
+quick one
+============
+openssl req -newkey rsa:4096 -nodes -sha256 -keyout testKey.key -x509 -days 365 -out testCrt.crt
+openssl x509 -in testCrt.crt -out testPem.pem -outform PEM
+
+sudo cp testPem.pem /etc/ssl/certs
+cd /etc/ssl/certs
+c_rehash (Run c_rehash this will create a .0 soft link to the .pem file)
+cp ca-certificates.crt ca-certificates.crt.bak
+sudo cat *.0 > ca-certificates.crt (if any permission error manually open ca-certificates.crt and append the content of finalPem.pem)
+
+
+longer one
+===========
+Generate Keypair without password (you can change to 4096)
+openssl genrsa -des3 -passout pass:x -out opensslKeyPair.key 4096
+with password
+openssl genrsa -des3 -out opensslKeyPair.key 2048
+Extract private key without password
+openssl rsa -passin pass:x -in opensslKeyPair.key -out opensslPrivate.key
+with password
+openssl rsa -in opensslKeyPair.key -out opensslPrivate.key
+Remove Keypair
+rm opensslKeyPair.key
+Create CSR to send it to CA or create your own 
+openssl req -new -key opensslPrivate.key -out generatedCsr.csr
+create your own certificate for 365 days
+openssl x509 -req -days 365 -in generatedCsr.csr -signkey opensslPrivate.key -out finalCrt.crt
+crt to pem conversion
+openssl x509 -in finalCrt.crt -out finalPem.pem -outform PEM
+sudo cp finalPem.pem /etc/ssl/certs
+cd /etc/ssl/certs
+c_rehash (Run c_rehash this will create a .0 soft link to the .pem file)
+cp ca-certificates.crt ca-certificates.crt.bak
+sudo cat *.0 > ca-certificates.crt (if any permission error manually open ca-certificates.crt and append the content of finalPem.pem)
+
+ 
+for Docker - https://docs.docker.com/registry/insecure/
+create your own certificate and  
+openssl req -newkey rsa:4096 -nodes -sha256 -keyout domain.key -x509 -days 365 -out domain.crt
+
+for ssh (for Hadoop)
+ssh-keygen -t rsa -P '' -f ~/.ssh/id_rsa
+cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys
+chmod 0600 ~/.ssh/authorized_keys
