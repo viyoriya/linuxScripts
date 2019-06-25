@@ -32,4 +32,6 @@ open the file and set to 10
 sudo systemctl kill --kill-who=main --signal=SIGUSR2 systemd-journald.service
 sudo systemctl restart systemd-journald.service
 sudo journalctl --vacuum-time=2d
-================================================
+===============clear eopkg cache=================================
+sudo eopkg dc
+sudo solbuild dc -a    (clear out all caches except solbuild images)
