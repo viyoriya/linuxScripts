@@ -1,6 +1,6 @@
 =================== start sshd ===============
 sudo eopkg it openssh-server
-systemctl status sshd.service 
+systemctl status sshd 
 sudo systemctl enable sshd
 
 systemctl get-default 
@@ -12,4 +12,4 @@ sudo systemctl set-default graphical.target
 
 =================== stop sshd ================
 sudo systemctl disable sshd
-systemctl stop sshd.service
+systemctl stop sshd
