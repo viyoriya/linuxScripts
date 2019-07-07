@@ -8,7 +8,7 @@ su
 > /var/log/lastlog
 > /var/log/eopkg.log
 dmesg -c
-===============clear eopkg cache=================================
+===============clear eopkg cache====================
 sudo eopkg dc
 
 sudo solbuild dc -a    (clear out all caches except solbuild images if solbuild installed)
