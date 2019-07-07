@@ -1,0 +1,10 @@
+check the hidden files in this folder
+execute this
+
+cp .bashrc_color_terminal /root/
+
+add this in /root/.bashrc
+
+if [ -f ~/.bashrc_color_terminal ]; then
+    . ~/.bashrc_color_terminal
+fi

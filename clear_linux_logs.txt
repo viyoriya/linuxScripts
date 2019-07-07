@@ -8,7 +8,11 @@ su
 > /var/log/lastlog
 > /var/log/eopkg.log
 dmesg -c
-============== tracker miner autostart files =====
+===============clear eopkg cache=================================
+sudo eopkg dc
+
+sudo solbuild dc -a    (clear out all caches except solbuild images if solbuild installed)
+============== tracker miner autostart files ==================
 echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-extract.desktop
 echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-miner-apps.desktop
 echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-miner-fs.desktop
@@ -32,6 +36,3 @@ open the file and set to 10
 sudo systemctl kill --kill-who=main --signal=SIGUSR2 systemd-journald.service
 sudo systemctl restart systemd-journald.service
 sudo journalctl --vacuum-time=2d
-===============clear eopkg cache=================================
-sudo eopkg dc
-sudo solbuild dc -a    (clear out all caches except solbuild images)

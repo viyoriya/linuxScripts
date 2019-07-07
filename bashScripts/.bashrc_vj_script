@@ -1,0 +1,16 @@
+alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/tubescript.py'
+alias cls='printf "\033c"'
+alias nqq=notepadqq
+
+function vj_mkgitrepo {
+	curl -u "viyoriya" https://api.github.com/user/repos -d '{ "name": "${1}" }' ; 
+}
+function vj_solgc {
+	git clone https://dev.getsol.us/source/${1}.git
+	cd ${1}
+	ls -hl --group-directories-first
+}
+
+alias lsalias='grep "alias" ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script'
+alias lsfunc='declare -F | grep 'vj_''
+alias lsfuncName='compgen -A function | grep 'vj_''
