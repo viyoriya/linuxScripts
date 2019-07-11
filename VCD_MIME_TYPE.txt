@@ -1,0 +1,30 @@
+gio info <fileName>.vcd
+gio mime application/x-cdlink
+
+if no display in terminal then create a mime xml application-x-cdlink.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+<mime-type type="application/x-cdlink">
+    <comment>Video CD mime type for brent :)</comment>
+    <glob pattern="*.vcd"/>
+  </mime-type>
+</mime-info>
+
+and save the file in in /usr/share/mime/packages/
+
+next create a desktop entry for newly created mimetype and you shoud have the application to open vcd files :)
+update the Exec application path with application name and save in as brentVideo.desktop in /usr/share/applications
+
+=================
+[Desktop Entry]
+Type=Application
+MimeType=application/x-cdlink
+Name=brentVideo
+Exec=brentVideoApplication
+===============
+
+finally update the databases
+
+update-mime-database /usr/share/mime
+update-desktop-database /usr/share/applications
