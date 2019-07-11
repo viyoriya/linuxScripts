@@ -35,3 +35,8 @@ sudo journalctl --vacuum-time=2d
 ===============clear eopkg cache=================================
 sudo eopkg dc
 sudo solbuild dc -a    (clear out all caches except solbuild images)
+=============== update menu =====================================
+if its global
+sudo update-desktop-database
+if its local 
+update-desktop-database ~/.local/share/applications/
