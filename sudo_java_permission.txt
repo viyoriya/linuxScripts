@@ -1,0 +1,6 @@
+find a java installation path
+readlink -f $(which java) 
+sudo visudo 
+ex : 
+old Defaults secure_path="/usr/sbin:/usr/bin/:/sbin:/bin"
+new Defaults secure_path="/usr/sbin:/usr/bin/:/sbin:/bin://usr/lib/jvm/jdk**/bin"
