@@ -2,6 +2,8 @@ check the hidden files in this folder
 
 add this in .bashrc
 
+export GREP_COLOR="1;32"
+
 if [ -f ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script ]; then
     . ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script
 fi
