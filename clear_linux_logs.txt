@@ -8,43 +8,37 @@ su
 > /var/log/lastlog
 > /var/log/eopkg.log
 dmesg -c
-===============clear eopkg cache====================
-sudo eopkg dc
-
-sudo solbuild dc -a    (clear out all caches except solbuild images if solbuild installed)
 ============== tracker miner autostart files ==================
-echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-extract.desktop
-echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-miner-apps.desktop
-echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-miner-fs.desktop
-echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-miner-user-guides.desktop
-echo -e "\nHidden=true\n"|sudo tee --append /etc/xdg/autostart/tracker-store.desktop
-
 gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2
 gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false
 
 tracker reset --hard
 
-tracker daemon -k  
 tracker status
-tracker daemon
 
 create auto startup ==> tracker daemon -k  
+
+or
+
+sudo systemctl disable tracker-extract.service tracker-miner-apps.service tracker-miner-fs.service tracker-miner-rss.service tracker-store.service tracker-writeback.service
+
+sudo systemctl stop tracker-extract.service tracker-miner-apps.service tracker-miner-fs.service tracker-miner-rss.service tracker-store.service tracker-writeback.service
+
+sudo rm /usr/lib64/systemd/user/tracker*.service
+
 ========== swappiness ===========================
 cat /proc/sys/vm/swappiness
 open the file and set to 10
 ========= journald =============================
 sudo systemctl kill --kill-who=main --signal=SIGUSR2 systemd-journald.service
 sudo systemctl restart systemd-journald.service
-<<<<<<< HEAD
 sudo journalctl --vacuum-time=2d
 ===============clear eopkg cache=================================
 sudo eopkg dc
-sudo solbuild dc -a    (clear out all caches except solbuild images)
+sudo solbuild dc -a    (clear out all caches except solbuild images if solbuild installed)
 =============== update menu =====================================
 if its global
 sudo update-desktop-database
 if its local 
 update-desktop-database ~/.local/share/applications/
 =======
-sudo journalctl --vacuum-time=2d
->>>>>>> 33613381ed47ee8c4566735b4ab5741fedac6adc
