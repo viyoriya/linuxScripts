@@ -1,16 +1,36 @@
-alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/tubescript.py'
+alias grep='grep --color=auto'
+alias du='du -h --max-depth=1 | sort -hr'
+alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
 alias cls='printf "\033c"'
+alias lsalias='grep "alias" ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script'
+
+alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/tubescript.py'
 alias nqq=notepadqq
+
+
+# === git ===
+alias gita='git add '
+alias gitr='git rm '
+alias gitc='git commit -m'
+alias gitd='git diff --color-words'
+#alias gitp='git push'
+alias gitp="git push origin master"
+alias gitl='git log --graph --oneline --decorate'
+alias gits='git status -sb'
+alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
+alias gitst="git stash"
 
 function vj_mkgitrepo {
 	curl -u "viyoriya" https://api.github.com/user/repos -d '{ "name": "${1}" }' ; 
 }
+
+# === Solus ===
 function vj_solgc {
 	git clone https://dev.getsol.us/source/${1}.git
 	cd ${1}
 	ls -hl --group-directories-first
 }
 
-alias lsalias='grep "alias" ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script'
+
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
