@@ -1,5 +1,9 @@
 check the hidden files in this folder
-execute this
+
+run the runInitScript.sh 
+
+or manualy add these lines 
+
 
 cp .bashrc_color_terminal /root/
 

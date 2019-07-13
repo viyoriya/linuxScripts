@@ -1,6 +1,9 @@
 check the hidden files in this folder
 
-add this in .bashrc
+
+run the runInitScript.sh 
+
+or manualy add these lines in .bashrc
 
 export GREP_COLOR="1;32"
 
