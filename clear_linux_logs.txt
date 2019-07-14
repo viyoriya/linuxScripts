@@ -8,6 +8,12 @@ su
 > /var/log/lastlog
 > /var/log/eopkg.log
 dmesg -c
+> /var/log/cups/access_log
+> /var/log/cups/error_log
+============== disable cups browsed printer  ==================
+sudo systemctl disable cups-browsed
+sudo systemctl stop cups-browsed
+
 ============== tracker miner autostart files ==================
 gsettings set org.freedesktop.Tracker.Miner.Files crawling-interval -2
 gsettings set org.freedesktop.Tracker.Miner.Files enable-monitors false
