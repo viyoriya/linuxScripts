@@ -98,7 +98,7 @@ sudo rm -rf /usr/local/share/themes/{Arc,Arc-Darker,Arc-Dark}
 
 sudo make
 #echo "================= Copying min/max/close png files ================="
-#sudo cp ~/Documents/SOLUS/GTK_THEMES/Adapta-Eta-titleButtons/*.png ${CWD}/common/gtk-3.0/3.20/assets/
+sudo cp ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/Adapta-Eta-titleButtons/*.png ${CWD}/common/gtk-3.0/3.20/assets/
 #echo "================= Copying Done ===================================="
 sudo make install
 
