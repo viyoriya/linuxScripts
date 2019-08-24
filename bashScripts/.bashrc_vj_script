@@ -2,11 +2,18 @@ alias grep='grep --color=auto'
 alias du='du -h --max-depth=1 | sort -hr'
 alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
 alias cls='printf "\033c"'
+alias ls='ls -lah --group-directories-first --color=auto'
 alias lsalias='grep "alias" ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script'
+
+#export PS1="\[\e[33m\][\[\e[m\]\[\e[34m\]\u\[\e[m\]\[\e[35m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \w\[\e[33m\]]\[\e[m\]\[\e[37m\]\\$\[\e[m\] "
+
+#export PS1="\[\e[1;34m\] \w  \[\e[m\] "
+export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
+#export PS1=" \[\e[1;94m\]  \[\e[00m\] "
 
 alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/tubescript.py'
 alias nqq=notepadqq
-
+alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
 
 # === git ===
 alias gita='git add '
@@ -31,6 +38,13 @@ function vj_solgc {
 	ls -hl --group-directories-first
 }
 
+# for pywal
+wal-tile() {
+    wal -n -i "$@"
+    feh --bg-tile "$(< "${HOME}/.cache/wal/wal")"
+}
 
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
+
+export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig

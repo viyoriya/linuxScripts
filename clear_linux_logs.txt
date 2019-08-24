@@ -41,4 +41,13 @@ if its global
 sudo update-desktop-database
 if its local 
 update-desktop-database ~/.local/share/applications/
-=======
+======= Stop printer ============================================
+systemctl status cups-browsed.service
+sudo systemctl stop cups-browsed.service
+sudo systemctl disable cups-browsed.service
+
+
+systemctl status org.cups.cupsd.service 
+sudo systemctl stop org.cups.cupsd.service
+sudo systemctl disable org.cups.cupsd.service
+

@@ -86,7 +86,7 @@ rm -rf ${CWD}/common/gtk-2.0/light/assets/*.png
 rm -rf ${CWD}/common/gtk-2.0/menubar-toolbar/*.png
 rm -rf ${CWD}/common/gtk-3.0/3.20/assets/*.png
 
-./autogen.sh --prefix=/usr --with-gnome-shell=3.32.1 --with-gtk3=3.24.8 --disable-cinnamon --disable-gnome-shell --disable-metacity --disable-unity --disable-xfwm --disable-plank --disable-openbox
+./autogen.sh --prefix=/usr --with-gnome-shell=3.32.2 --with-gtk3=3.24.10 --disable-cinnamon --disable-gnome-shell --disable-metacity --disable-unity --disable-xfwm --disable-plank --disable-openbox
 #./autogen.sh --prefix=/usr --with-gnome-shell=3.32.1 --with-gtk3=3.24.8 --disable-cinnamon --disable-unity --disable-xfwm --disable-plank --disable-openbox
 sudo rm -rf /usr/share/themes/{Arc,Arc-Darker,Arc-Dark}
 sudo rm -rf ~/.local/share/themes/{Arc,Arc-Darker,Arc-Dark}
