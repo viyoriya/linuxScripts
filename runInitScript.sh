@@ -14,7 +14,6 @@ update_root_bash(){
 update_home_bash(){
 	echo " " >> ~/.bashrc
 	echo " " >> ~/.bashrc
-	echo 'export GREP_COLOR="1;32"' >> ~/.bashrc
 	echo "if [ -f ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script ]; then" >> ~/.bashrc
 	echo "	. ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script" >> ~/.bashrc
 	echo "fi" >> ~/.bashrc

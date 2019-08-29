@@ -1,36 +1,43 @@
-alias grep='grep --color=auto'
-alias du='du -h --max-depth=1 | sort -hr'
-alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
-alias cls='printf "\033c"'
-alias ls='ls -lah --group-directories-first --color=auto'
+
+#SMILEY="\[\e[32m\] \[\e[m\]"
+#FROWNY="\[\e[31m\] \[\e[m\]"
+#SELECT="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
+#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\] \`${SELECT}\` \[\e[00m\] "
+
+export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
+
+export GREP_COLOR="1;32"
+export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
 alias lsalias='grep "alias" ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script'
 
-#export PS1="\[\e[33m\][\[\e[m\]\[\e[34m\]\u\[\e[m\]\[\e[35m\]@\[\e[m\]\[\e[34m\]\h\[\e[m\] \w\[\e[33m\]]\[\e[m\]\[\e[37m\]\\$\[\e[m\] "
-
-#export PS1="\[\e[1;34m\] \w  \[\e[m\] "
-export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
-#export PS1=" \[\e[1;94m\]  \[\e[00m\] "
-
-alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/tubescript.py'
-alias nqq=notepadqq
-alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
-
-# === git ===
+alias -->='============================= git ==================================' 
 alias gita='git add '
 alias gitr='git rm '
 alias gitc='git commit -m'
 alias gitd='git diff --color-words'
-#alias gitp='git push'
 alias gitp="git push origin master"
 alias gitl='git log --graph --oneline --decorate'
 alias gits='git status -sb'
 alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
 alias gitst="git stash"
+alias -->='============================= System ==============================='
 
+alias du='du -h --max-depth=1 | sort -hr'
+alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
+alias blkid='sudo blkid'
+alias fdisk='sudo fdisk -l'
+alias parted='sudo parted -l'
+alias ls='ls -lah --group-directories-first --color=auto'
+alias grep='grep --color=auto'
+alias cls='printf "\033c"'
+up() { cd $(eval printf '../'%.0s {1..$1}); }
+
+alias -->='===================================================================='
+
+# === Create git repo ===
 function vj_mkgitrepo {
 	curl -u "viyoriya" https://api.github.com/user/repos -d '{ "name": "${1}" }' ; 
 }
-
 # === Solus ===
 function vj_solgc {
 	git clone https://dev.getsol.us/source/${1}.git
@@ -38,13 +45,32 @@ function vj_solgc {
 	ls -hl --group-directories-first
 }
 
-# for pywal
-wal-tile() {
-    wal -n -i "$@"
-    feh --bg-tile "$(< "${HOME}/.cache/wal/wal")"
-}
-
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
 
-export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
+alias fetchYml="../common/Scripts/yauto.py"
+alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
+
+alias -->='===================================================================='
+
+alias hp="htop -u nobody"
+alias nanorc="ls -l /usr/share/nano/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
+alias nanovj="ls -l ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/nanorc/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
+alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/tubescript.py'
+alias nqq=notepadqq
+alias tldr='f() { curl cheat.sh/$1; };f'
+
+alias -->='===================================================================='
+
+alias m2='sudo mount /dev/sda2 /mnt/so'
+alias m3='sudo mount /dev/sda3 /mnt/ma'
+alias m4='sudo mount /dev/sda4 /mnt/vo'
+alias m5='sudo mount /dev/sda5 /mnt/cr'
+
+alias proj='cd ~/Documents/SOLUS/GIT_PROJECTS/'
+alias smi='sudo make install'
+alias dwm='cd ~/Documents/SOLUS/GIT_PROJECTS/suckless/dwm/'
+alias ssc='sudo subl config.h'
+
+
+alias -->='======================  END  ========================================'
