@@ -10,7 +10,7 @@ export GREP_COLOR="1;32"
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
 alias lsalias='grep "alias" ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script'
 
-alias -->='============================= git ==================================' 
+alias dummy='============================= git ==================================' 
 alias gita='git add '
 alias gitr='git rm '
 alias gitc='git commit -m'
@@ -20,7 +20,7 @@ alias gitl='git log --graph --oneline --decorate'
 alias gits='git status -sb'
 alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
 alias gitst="git stash"
-alias -->='============================= System ==============================='
+alias dummy='============================= System ==============================='
 
 alias du='du -h --max-depth=1 | sort -hr'
 alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
@@ -32,7 +32,7 @@ alias grep='grep --color=auto'
 alias cls='printf "\033c"'
 up() { cd $(eval printf '../'%.0s {1..$1}); }
 
-alias -->='===================================================================='
+alias dummy='===================================================================='
 
 # === Create git repo ===
 function vj_mkgitrepo {
@@ -51,7 +51,7 @@ alias lsfuncName='compgen -A function | grep 'vj_''
 alias fetchYml="../common/Scripts/yauto.py"
 alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
 
-alias -->='===================================================================='
+alias dummy='===================================================================='
 
 alias hp="htop -u nobody"
 alias nanorc="ls -l /usr/share/nano/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
@@ -60,12 +60,14 @@ alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linu
 alias nqq=notepadqq
 alias tldr='f() { curl cheat.sh/$1; };f'
 
-alias -->='===================================================================='
+alias dummy='===================================================================='
 
 alias m2='sudo mount /dev/sda2 /mnt/so'
 alias m3='sudo mount /dev/sda3 /mnt/ma'
 alias m4='sudo mount /dev/sda4 /mnt/vo'
 alias m5='sudo mount /dev/sda5 /mnt/cr'
+alias usbp1='sudo chmod -R a+rwX,o-w '
+alias usbp2='sudo chown -R $USER:$USER '
 
 alias proj='cd ~/Documents/SOLUS/GIT_PROJECTS/'
 alias smi='sudo make install'
@@ -73,4 +75,4 @@ alias dwm='cd ~/Documents/SOLUS/GIT_PROJECTS/suckless/dwm/'
 alias ssc='sudo subl config.h'
 
 
-alias -->='======================  END  ========================================'
+alias dummy='======================  END  ========================================'
