@@ -57,3 +57,12 @@ systemctl status org.cups.cupsd.service
 sudo systemctl stop org.cups.cupsd.service
 sudo systemctl disable org.cups.cupsd.service
 
+================= keyboard =======================
+setxkbmap -print -query
+cat /usr/share/X11/xkb/symbols/inet
+comment key <I372> to avoid error in X server
+==================================================
+testing DWM
+Xephyr :1 +xinerama -screen 600×400 &
+Xephyr :2 +xinerama -screen 600×400 &
+Xdmx :3 -display localhost:1 -display localhost:2 +xinerama

@@ -19,7 +19,8 @@ alias gitp="git push origin master"
 alias gitl='git log --graph --oneline --decorate'
 alias gits='git status -sb'
 alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
-alias gitst="git stash"
+alias gito='git config --get remote.origin.url'
+alias gitst='git stash'
 alias dummy='============================= System ==============================='
 
 alias du='du -h --max-depth=1 | sort -hr'
@@ -30,7 +31,12 @@ alias parted='sudo parted -l'
 alias ls='ls -lah --group-directories-first --color=auto'
 alias grep='grep --color=auto'
 alias cls='printf "\033c"'
+alias fd='sudo find / -name '
+alias gr='sudo grep -iRl'
+
 up() { cd $(eval printf '../'%.0s {1..$1}); }
+
+#export _JAVA_AWT_WM_NONREPARENTING=1
 
 alias dummy='===================================================================='
 
@@ -71,7 +77,7 @@ alias usbp2='sudo chown -R $USER:$USER '
 
 alias proj='cd ~/Documents/SOLUS/GIT_PROJECTS/'
 alias smi='sudo make install'
-alias dwm='cd ~/Documents/SOLUS/GIT_PROJECTS/suckless/dwm/'
+alias sdwm='cd ~/Documents/SOLUS/GIT_PROJECTS/wm/suckless/dwm/'
 alias ssc='sudo subl config.h'
 
 
