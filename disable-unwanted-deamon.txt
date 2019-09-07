@@ -1,10 +1,12 @@
-sudo mv /usr/lib/at-spi2/core/at-spi2-registryd /usr/lib64/at-spi2/core/at-spi2-registryd.old
-sudo mv /usr/lib64/at-spi2/core/at-spi-bus-launcher /usr/lib64/at-spi2/core/at-spi-bus-launcher.old
+sudo mv /usr/lib/at-spi2/core/at-spi-bus-launcher /usr/lib/at-spi-bus-launcher.old
+sudo mv /usr/lib/at-spi2/core/at-spi2-registryd /usr/lib/at-spi2-registryd.old
 sudo mv /usr/share/defaults/at-spi2 /usr/share/defaults/at-spi2-old
 
+to revert back
+
 sudo mv /usr/share/defaults/at-spi2-old /usr/share/defaults/at-spi2
-sudo mv /usr/lib/at-spi2/core/at-spi2-registryd.old /usr/lib64/at-spi2/core/at-spi2-registryd
-sudo mv /usr/lib64/at-spi2/core/at-spi-bus-launcher.old /usr/lib64/at-spi2/core/at-spi-bus-launcher
+sudo mv /usr/lib/at-spi2/core/at-spi-bus-launcher.old /usr/lib/at-spi-bus-launcher
+sudo mv /usr/lib/at-spi2/core/at-spi2-registryd.old /usr/lib/at-spi2-registryd
 
 reboot
 in etc/environment or ~/.profile
