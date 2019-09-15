@@ -68,10 +68,17 @@ alias tldr='f() { curl cheat.sh/$1; };f'
 
 alias dummy='===================================================================='
 
-alias m2='sudo mount /dev/sda2 /mnt/so'
-alias m3='sudo mount /dev/sda3 /mnt/ma'
-alias m4='sudo mount /dev/sda4 /mnt/vo'
-alias m5='sudo mount /dev/sda5 /mnt/cr'
+alias tsr='tmux kill-server'
+alias tsa='tmux kill-session -a'
+alias tst='tmux kill-session -t '
+alias tls='tmux list-sessions'
+
+#alias tk='pkill -f tmux'
+
+alias m2='sudo mount /dev/sda2 /mnt'
+alias m3='sudo mount /dev/sda3 /mnt'
+alias m4='sudo mount /dev/sda4 /mnt'
+alias m5='sudo mount /dev/sda5 /mnt'
 alias usbp1='sudo chmod -R a+rwX,o-w '
 alias usbp2='sudo chown -R $USER:$USER '
 
