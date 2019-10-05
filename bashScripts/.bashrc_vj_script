@@ -16,6 +16,7 @@ alias gitr='git rm '
 alias gitc='git commit -m'
 alias gitd='git diff --color-words'
 alias gitp="git push origin master"
+alias gitpu="git pull origin master"
 alias gitl='git log --graph --oneline --decorate'
 alias gits='git status -sb'
 alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
