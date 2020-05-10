@@ -14,7 +14,7 @@ cd "${CWD}"
 
 #./autogen.sh --prefix=/usr --with-selection_color=#88c0d0 --with-accent_color=#c5dfe7 --enable-gtk_next --disable-gnome --disable-cinnamon --disable-flashback --disable-xfce --disable-openbox
 #./autogen.sh --prefix=/usr --with-selection_color=#424242 --with-accent_color=#757575 --enable-gtk_next --disable-gnome --disable-cinnamon --disable-flashback --disable-xfce --disable-openbox
-./autogen.sh --prefix=/usr --with-selection_color=#88c0d0 --with-accent_color=#c5dfe7 --enable-gtk_next --disable-gnome --disable-cinnamon --disable-flashback --disable-xfce --disable-openbox
+./autogen.sh --prefix=/usr --with-selection_color=#88c0d0 --with-accent_color=#c5dfe7 --enable-gtk_next --disable-gnome --disable-cinnamon --disable-flashback --disable-xfce 
 sudo rm -rf /usr/share/themes/{Plata,Plata-Compact,Plata-Lumine,Plata-Lumine-Compact,Plata-Noir,Plata-Noir-Compact}
 sudo rm -rf /usr/local/share/themes/{Plata,Plata-Compact,Plata-Lumine,Plata-Lumine-Compact,Plata-Noir,Plata-Noir-Compact}
 rm -rf ~/.local/share/themes/{Plata,Plata-Compact,Plata-Lumine,Plata-Lumine-Compact,Plata-Noir,Plata-Noir-Compact}

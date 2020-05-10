@@ -34,6 +34,7 @@ alias ls='ls -lah --group-directories-first --color=auto'
 alias grep='grep --color=auto'
 alias cls='printf "\033c"'
 alias fd='sudo find / -name '
+alias fz='nvim $(fzf)'
 alias gr='sudo grep -iRl'
 
 up() { cd $(eval printf '../'%.0s {1..$1}); }
