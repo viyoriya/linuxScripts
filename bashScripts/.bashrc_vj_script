@@ -36,7 +36,7 @@ alias cls='printf "\033c"'
 alias fd='sudo find / -name '
 alias fz='nvim $(fzf)'
 alias gr='sudo grep -iRl'
-
+alias hs=history | grep 
 up() { cd $(eval printf '../'%.0s {1..$1}); }
 
 #export _JAVA_AWT_WM_NONREPARENTING=1
@@ -80,12 +80,12 @@ alias tls='tmux list-sessions'
 
 
 alias m2='sudo mkdir -p /mnt/so && sudo mount /dev/sda2 /mnt/so'
-alias m3='sudo mkdir -p /mnt/ma && sudo mount /dev/sda3 /mnt/ma'
+alias m3='sudo mkdir -p /mnt/ma && sudo mount /dev/sda3 /mnt/ar'
 alias m4='sudo mkdir -p /mnt/vo && sudo mount /dev/sda4 /mnt/vo'
 alias m5l='sudo mkdir -p /mnt/lfs && sudo mount /dev/sda5 /mnt/lfs'
 alias m5t='sudo mkdir -p /mnt/ta && sudo mount /dev/sda5 /mnt/ta'
 alias m2u='sudo umount /mnt/so'
-alias m3u='sudo umount /mnt/ma'
+alias m3u='sudo umount /mnt/ar'
 alias m4u='sudo umount /mnt/vo'
 alias m5lu='sudo umount /mnt/lfs'
 alias m5tu='sudo umount /mnt/ta'
@@ -95,8 +95,8 @@ alias usbp2='sudo chown -R $USER:$USER '
 
 alias proj='cd ~/Documents/SOLUS/GIT_PROJECTS/'
 alias smi='sudo make install'
-alias sdwm='cd ~/Documents/SOLUS/GIT_PROJECTS/wm/suckless/dwm/'
-alias ssc='sudo subl config.h'
+alias dwmd='cd ~/Documents/SOLUS/GIT_PROJECTS/wm/suckless/dwm/'
+alias dwmc='subl ~/Documents/SOLUS/GIT_PROJECTS/wm/suckless/dwm/config.h'
 
 
 alias dummy='======================  END  ========================================'
