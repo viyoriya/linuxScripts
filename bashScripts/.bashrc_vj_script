@@ -4,7 +4,8 @@
 #SELECT="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
 #export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\] \`${SELECT}\` \[\e[00m\] "
 
-export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
+#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
+export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
 
 export GREP_COLOR="1;32"
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
