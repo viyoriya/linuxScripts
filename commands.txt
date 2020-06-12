@@ -1,0 +1,19 @@
+apropos account info | grep expiry
+
+apropos kill process | grep kill
+
+apropos change file permissions | grep mode
+
+apropos search
+
+#for newly created user these files are created
+ls -a /etc/skel
+
+sudo vgscan
+sudo mount -a
+
+/usr/share/doc
+
+sudo parted /dev/sda unit MiB print free
+sudo cfdisk /dev/sda
+
