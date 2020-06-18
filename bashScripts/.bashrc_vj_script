@@ -11,6 +11,7 @@ export GREP_COLOR="1;32"
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --border=sharp --inline-info --ansi'
+#export FZF_CTRL_T_COMMAND='nvim "${FZF_DEFAULT_COMMAND}"'
 
 alias lsalias='grep "alias" ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script'
 alias lsgit='lsalias | grep git'
