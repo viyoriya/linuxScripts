@@ -7,6 +7,9 @@
 #export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
 export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
 
+alias rd="redshift -P -O 6800K"
+
+
 export GREP_COLOR="1;32"
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
 export FZF_DEFAULT_COMMAND='find .'
@@ -56,17 +59,17 @@ alias dummy='===================================================================
 function vj_mkgitrepo {
 	curl -u "viyoriya" https://api.github.com/user/repos -d '{ "name": "${1}" }' ; 
 }
-# === Solus ===
-function vj_solgc {
-	git clone https://dev.getsol.us/source/${1}.git
-	cd ${1}
-	ls -hl --group-directories-first
+# === xdo window swallowing  ===
+function vj_xdo {
+        id=$(xdo id)
+        xdo hide
+        sh -c "$*" >/dev/null 2>&1
+        xdo show "$id"
 }
 
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
 
-alias fetchYml="../common/Scripts/yauto.py"
 alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
 
 alias dummy='===================================================================='
@@ -77,6 +80,8 @@ alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linu
 alias nqq=notepadqq
 alias tldr='f() { curl cheat.sh/$1; };f'
 alias fz='nvim -p $(fzf)'
+alias zathura='vj_xdo zathura'
+alias feeh='vj_xdo feh'
 
 alias dummy='===================================================================='
 
