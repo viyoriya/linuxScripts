@@ -14,8 +14,8 @@ update_root_bash(){
 update_home_bash(){
 	echo " " >> ~/.bashrc
 	echo " " >> ~/.bashrc
-	echo "if [ -f ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script ]; then" >> ~/.bashrc
-	echo "	. ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script" >> ~/.bashrc
+	echo "if [ -f ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_all ]; then" >> ~/.bashrc
+	echo "	. ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_all" >> ~/.bashrc
 	echo "fi" >> ~/.bashrc
 }
 
