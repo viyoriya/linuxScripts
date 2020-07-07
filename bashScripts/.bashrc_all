@@ -5,14 +5,14 @@ export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
 
 alias rd="redshift -P -O 6800K"
 
-
+export PAGER="most"
 export GREP_COLOR="1;32"
+
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --border=sharp --inline-info --ansi'
 #export FZF_CTRL_T_COMMAND='nvim "${FZF_DEFAULT_COMMAND}"'
-
-alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_arch'
+alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_all'
 alias lsgit='lsalias | grep git'
 alias lsmo='lsalias | grep "alias m"'
 
@@ -38,7 +38,7 @@ alias blkid='sudo blkid'
 alias fdisk='sudo fdisk -l'
 alias parted='sudo parted -l'
 alias inxi='inxi -Fxzc0'
-alias ls='ls -lah --group-directories-first --color=auto'
+alias ls='ls -lahX --color=auto -I "." -I ".." --group-directories-first'
 alias grep='grep --color=auto'
 alias cls='printf "\033c"'
 alias fd='sudo find / -name '
