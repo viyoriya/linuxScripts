@@ -1,20 +1,29 @@
 
-
 #export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
 export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
 
-alias rd="redshift -P -O 6800K"
+#alias rd="redshift -P -O 6800K"
 
-export PAGER="most"
+#export PAGER="most"
 export GREP_COLOR="1;32"
+export BAT_THEME="OneHalfDark"
+
+#export PASSWORD_STORE_DIR=~/.config/password-store
+
+HISTSIZE=20000
+HISTFILESIZE=20000
+
+export XDG_CONFIG_HOME=$HOME/.config
+export _JAVA_AWT_WM_NONREPARENTING=1
+export NO_AT_BRIDGE=1
 
 export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --border=sharp --inline-info --ansi'
 #export FZF_CTRL_T_COMMAND='nvim "${FZF_DEFAULT_COMMAND}"'
+
 alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_all'
 alias lsgit='lsalias | grep git'
-alias lsmo='lsalias | grep "alias m"'
 
 alias dummy='============================= git ==================================' 
 alias gita='git add '
@@ -43,7 +52,7 @@ alias grep='grep --color=auto'
 alias cls='printf "\033c"'
 alias fd='sudo find / -name '
 alias gr='sudo grep -iRl'
-alias hs='history | grep' 
+#alias hs='history | grep' 
 alias hp='htop -u nobody'
 
 up() { cd $(eval printf '../'%.0s {1..$1}); }
@@ -73,7 +82,6 @@ alias dummy='===================================================================
 alias nanorc="ls -l /usr/share/nano/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
 alias nanovj="ls -l ~/Documents/GIT_PROJECTS/linuxScripts/nanorc/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
 alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
-alias nqq=notepadqq
 alias tldr='f() { curl cheat.sh/$1; };f'
 alias fz='nvim -p $(fzf)'
 alias zathura='vj_xdo zathura'
@@ -85,20 +93,7 @@ alias tsr='tmux kill-server'
 alias tsa='tmux kill-session -a'
 alias tst='tmux kill-session -t '
 alias tls='tmux list-sessions'
-
 #alias tk='pkill -f tmux'
-
-
-alias m2='sudo mkdir -p /mnt/so && sudo mount /dev/sda2 /mnt/so && cd /mnt/so/home/vj/'
-alias m3='sudo mkdir -p /mnt/ar && sudo mount /dev/sda3 /mnt/ar && cd /mnt/ar/home/vj/'
-alias m4='sudo mkdir -p /mnt/vo && sudo mount /dev/sda4 /mnt/vo && cd /mnt/vo/home/vj/'
-alias m5='sudo mkdir -p /mnt/ta && sudo mount /dev/sda5 /mnt/ta && cd /mnt/ta/home/vj/'
-alias m8='sudo mkdir -p /mnt/at && sudo mount /dev/sda8 /mnt/at && cd /mnt/at/home/vj/'
-alias m2u='sudo umount /mnt/so'
-alias m3u='sudo umount /mnt/ar'
-alias m4u='sudo umount /mnt/vo'
-alias m5u='sudo umount /mnt/ta'
-alias m8u='sudo umount /mnt/at'
 
 alias usbp1='sudo chmod -R a+rwX,o-w '
 alias usbp2='sudo chown -R $USER:$USER '
@@ -106,9 +101,9 @@ alias usbp2='sudo chown -R $USER:$USER '
 alias proj='cd ~/Documents/GIT_PROJECTS/'
 alias smi='sudo make install'
 alias dwmd='cd ~/Documents/GIT_PROJECTS/wm/suckless/dwm/'
-alias dwmc='subl ~/Documents/GIT_PROJECTS/wm/suckless/dwm/config.h'
+alias dwmc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dwm/config.h'
 alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
-alias yay='yay --aur'
-alias yayc='yay -Sc --aur'
+#alias yay='yay --aur'
+#alias yayc='yay -Sc --aur'
 
 alias dummy='======================  END  ========================================'
