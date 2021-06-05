@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CDIR="Documents/SOLUS/GIT_PROJECTS"
+#CDIR="Documents/GIT_PROJECTS"
 
 update_root_bash(){
 	cd /root
@@ -19,9 +19,9 @@ update_home_bash(){
 	echo "fi" >> ~/.bashrc
 }
 
-mkdir -pv $CDIR
-cd $CDIR
-git clone https://github.com/viyoriya/linuxScripts.git
+#mkdir -pv $CDIR
+#cd $CDIR
+#git clone https://github.com/viyoriya/linuxScripts.git
 $(update_home_bash)
 echo "=== home bashrc updated ==="
 $(update_root_bash)

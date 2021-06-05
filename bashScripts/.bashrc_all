@@ -52,7 +52,6 @@ alias grep='grep --color=auto'
 alias cls='printf "\033c"'
 alias fd='sudo find / -name '
 alias gr='sudo grep -iRl'
-#alias hs='history | grep' 
 alias hp='htop -u nobody'
 
 up() { cd $(eval printf '../'%.0s {1..$1}); }
@@ -79,8 +78,6 @@ alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
 
 alias dummy='===================================================================='
 
-alias nanorc="ls -l /usr/share/nano/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
-alias nanovj="ls -l ~/Documents/GIT_PROJECTS/linuxScripts/nanorc/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
 alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
 alias tldr='f() { curl cheat.sh/$1; };f'
 alias fz='nvim -p $(fzf)'
@@ -102,8 +99,8 @@ alias proj='cd ~/Documents/GIT_PROJECTS/'
 alias smi='sudo make install'
 alias dwmd='cd ~/Documents/GIT_PROJECTS/wm/suckless/dwm/'
 alias dwmc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dwm/config.h'
+alias dmenuc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dmenu/config.h'
+alias stc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/st/config.h'
 alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
-#alias yay='yay --aur'
-#alias yayc='yay -Sc --aur'
 
 alias dummy='======================  END  ========================================'

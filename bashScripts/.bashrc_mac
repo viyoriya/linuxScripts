@@ -1,22 +1,12 @@
 
-#SMILEY="\[\e[32m\] \[\e[m\]"
-#FROWNY="\[\e[31m\] \[\e[m\]"
-#SELECT="if [ \$? = 0 ]; then echo \"${SMILEY}\"; else echo \"${FROWNY}\"; fi"
-#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\] \`${SELECT}\` \[\e[00m\] "
-
-#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
 export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
 
-alias rd="redshift -P -O 6800K"
-
-
 export GREP_COLOR="1;32"
-export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --border=sharp --inline-info --ansi'
 #export FZF_CTRL_T_COMMAND='nvim "${FZF_DEFAULT_COMMAND}"'
 
-alias lsalias='grep "alias" ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_vj_script'
+alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_mac'
 alias lsgit='lsalias | grep git'
 alias lsmo='lsalias | grep "alias m"'
 
@@ -59,29 +49,14 @@ alias dummy='===================================================================
 function vj_mkgitrepo {
 	curl -u "viyoriya" https://api.github.com/user/repos -d '{ "name": "${1}" }' ; 
 }
-# === xdo window swallowing  ===
-function vj_xdo {
-        id=$(xdo id)
-        xdo hide
-        sh -c "$*" >/dev/null 2>&1
-        xdo show "$id"
-}
 
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
 
-alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
-
 alias dummy='===================================================================='
 
-alias nanorc="ls -l /usr/share/nano/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
-alias nanovj="ls -l ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/nanorc/*.nanorc | awk '{print \"include \" \$9;}' >> ~/.nanorc"
-alias neofetch='/usr/bin/neofetch && python3 ~/Documents/SOLUS/GIT_PROJECTS/linuxScripts/tubescript.py'
-alias nqq=notepadqq
 alias tldr='f() { curl cheat.sh/$1; };f'
 alias fz='nvim -p $(fzf)'
-alias zathura='vj_xdo zathura'
-alias feeh='vj_xdo feh'
 
 alias dummy='===================================================================='
 
@@ -92,25 +67,11 @@ alias tls='tmux list-sessions'
 
 #alias tk='pkill -f tmux'
 
-
-alias m2='sudo mkdir -p /mnt/so && sudo mount /dev/sda2 /mnt/so'
-alias m3='sudo mkdir -p /mnt/ar && sudo mount /dev/sda3 /mnt/ar'
-alias m4='sudo mkdir -p /mnt/vo && sudo mount /dev/sda4 /mnt/vo'
-alias m5l='sudo mkdir -p /mnt/lfs && sudo mount /dev/sda5 /mnt/lfs'
-alias m5t='sudo mkdir -p /mnt/ta && sudo mount /dev/sda5 /mnt/ta'
-alias m2u='sudo umount /mnt/so'
-alias m3u='sudo umount /mnt/ar'
-alias m4u='sudo umount /mnt/vo'
-alias m5lu='sudo umount /mnt/lfs'
-alias m5tu='sudo umount /mnt/ta'
-
 alias usbp1='sudo chmod -R a+rwX,o-w '
 alias usbp2='sudo chown -R $USER:$USER '
 
-alias proj='cd ~/Documents/SOLUS/GIT_PROJECTS/'
+alias proj='cd ~/Documents/GIT_PROJECTS/'
 alias smi='sudo make install'
-alias dwmd='cd ~/Documents/SOLUS/GIT_PROJECTS/wm/suckless/dwm/'
-alias dwmc='subl ~/Documents/SOLUS/GIT_PROJECTS/wm/suckless/dwm/config.h'
 
 
 alias dummy='======================  END  ========================================'
