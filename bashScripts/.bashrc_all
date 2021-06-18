@@ -1,17 +1,13 @@
 
-#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
-export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
-
-#alias rd="redshift -P -O 6800K"
-
-#export PAGER="most"
-export GREP_COLOR="1;32"
-export BAT_THEME="OneHalfDark"
-
-#export PASSWORD_STORE_DIR=~/.config/password-store
-
 HISTSIZE=20000
 HISTFILESIZE=20000
+
+#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
+export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
+ZPS1="%B%{$fg[red]%}[%{$fg[blue]%}%n%{$fg[green]%}@%{$fg[yellow]%}%M %{$fg[blue]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+export GREP_COLOR="1;32"
+export BAT_THEME="OneHalfDark"
 
 export XDG_CONFIG_HOME=$HOME/.config
 export _JAVA_AWT_WM_NONREPARENTING=1
@@ -24,8 +20,41 @@ export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --b
 
 alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_all'
 alias lsgit='lsalias | grep git'
+alias lspac='lsalias | grep pac'
+#============================= functions  =============================
+up() { cd $(eval printf '../'%.0s {1..$1}); }
 
-alias dummy='============================= git ==================================' 
+function vj_mkgitrepo {
+	curl -u "viyoriya" https://api.github.com/user/repos -d '{ "name": "${1}" }' ; 
+}
+# xdo window swallowing  
+function vj_xdo {
+        id=$(xdo id)
+        xdo hide
+        sh -c "$*" >/dev/null 2>&1
+        xdo show "$id"
+}
+function tree {
+    br -c :pt "$@"
+}
+
+alias lsfunc='declare -F | grep 'vj_''
+alias lsfuncName='compgen -A function | grep 'vj_''
+#============================= System  ================================
+alias du='du -h --max-depth=1 | sort -hr'
+alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
+alias blkid='sudo blkid'
+alias fdisk='sudo fdisk -l'
+alias parted='sudo parted -l'
+alias inxi='inxi -Fxzc0'
+alias ls='ls -lahX --color=auto -I "." -I ".." --group-directories-first'
+alias lst='ls -latr --color=auto --group-directories-first'
+alias grep='grep --color=auto'
+alias cls='printf "\033c"'
+alias fd='sudo find / -name '
+alias gr='sudo grep -iRl'
+alias hp='htop -u nobody'
+#============================= git ====================================
 alias gita='git add '
 alias gitr='git rm '
 alias gitc='git commit -m'
@@ -39,68 +68,35 @@ alias gitm='git ls-files -m'
 alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
 alias gito='git config --get remote.origin.url'
 alias gitst='git stash'
-alias dummy='============================= System ==============================='
-
-alias du='du -h --max-depth=1 | sort -hr'
-alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
-alias blkid='sudo blkid'
-alias fdisk='sudo fdisk -l'
-alias parted='sudo parted -l'
-alias inxi='inxi -Fxzc0'
-alias ls='ls -lahX --color=auto -I "." -I ".." --group-directories-first'
-alias grep='grep --color=auto'
-alias cls='printf "\033c"'
-alias fd='sudo find / -name '
-alias gr='sudo grep -iRl'
-alias hp='htop -u nobody'
-
-up() { cd $(eval printf '../'%.0s {1..$1}); }
-#export _JAVA_AWT_WM_NONREPARENTING=1
-
-alias dummy='===================================================================='
-
-# === Create git repo ===
-function vj_mkgitrepo {
-	curl -u "viyoriya" https://api.github.com/user/repos -d '{ "name": "${1}" }' ; 
-}
-# === xdo window swallowing  ===
-function vj_xdo {
-        id=$(xdo id)
-        xdo hide
-        sh -c "$*" >/dev/null 2>&1
-        xdo show "$id"
-}
-
-alias lsfunc='declare -F | grep 'vj_''
-alias lsfuncName='compgen -A function | grep 'vj_''
-
-alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
-
-alias dummy='===================================================================='
-
-alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
-alias tldr='f() { curl cheat.sh/$1; };f'
-alias fz='nvim -p $(fzf)'
-alias zathura='vj_xdo zathura'
-alias feeh='vj_xdo feh'
-
-alias dummy='===================================================================='
-
+#============================= tmux  ================================== 
 alias tsr='tmux kill-server'
 alias tsa='tmux kill-session -a'
 alias tst='tmux kill-session -t '
 alias tls='tmux list-sessions'
 #alias tk='pkill -f tmux'
-
+#============================= pacman  ================================ 
+alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
+alias pacls='grep -i installed /var/log/pacman.log'
+#============================= common  ================================ 
+#alias rd="redshift -P -O 6800K"
 alias usbp1='sudo chmod -R a+rwX,o-w '
 alias usbp2='sudo chown -R $USER:$USER '
+alias tldr='f() { curl cheat.sh/$1; };f'
+alias fz='nvim -p $(fzf)'
+alias zathura='vj_xdo zathura'
+alias feeh='vj_xdo feh'
 
+alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
 alias proj='cd ~/Documents/GIT_PROJECTS/'
 alias smi='sudo make install'
 alias dwmd='cd ~/Documents/GIT_PROJECTS/wm/suckless/dwm/'
 alias dwmc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dwm/config.h'
 alias dmenuc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dmenu/config.h'
 alias stc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/st/config.h'
-alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
+#alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
 
-alias dummy='======================  END  ========================================'
+source /home/vj/.config/broot/launcher/bash/br
+alias brh="\br -Shp --height 50"
+alias br="\br -Sp --height 50"
+alias exa="exa -la --group-directories-first"
+
