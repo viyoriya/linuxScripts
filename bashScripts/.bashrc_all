@@ -1,4 +1,6 @@
 
+
+HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=20000
 HISTFILESIZE=20000
 
@@ -21,7 +23,7 @@ export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --b
 alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_all'
 alias lsgit='lsalias | grep git'
 alias lspac='lsalias | grep pac'
-#============================= functions  =============================
+alias tmp='============================= functions  ============================='
 up() { cd $(eval printf '../'%.0s {1..$1}); }
 
 function vj_mkgitrepo {
@@ -41,7 +43,7 @@ function tree {
 
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
-#============================= System  ================================
+alias tmp='============================= System  ================================'
 alias du='du -h --max-depth=1 | sort -hr'
 alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
 alias blkid='sudo blkid'
@@ -55,7 +57,7 @@ alias cls='printf "\033c"'
 alias fd='sudo find / -name '
 alias gr='sudo grep -iRl'
 alias hp='htop -u nobody'
-#============================= git ====================================
+alias tmp='============================= git ===================================='
 alias gita='git add '
 alias gitr='git rm '
 alias gitc='git commit -m'
@@ -69,16 +71,16 @@ alias gitm='git ls-files -m'
 alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
 alias gito='git config --get remote.origin.url'
 alias gitst='git stash'
-#============================= tmux  ================================== 
+alias tmp='============================= tmux  ==================================' 
 alias tsr='tmux kill-server'
 alias tsa='tmux kill-session -a'
 alias tst='tmux kill-session -t '
 alias tls='tmux list-sessions'
 #alias tk='pkill -f tmux'
-#============================= pacman  ================================ 
+alias tmp='============================= pacman  ================================' 
 alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
 alias pacls='grep -i installed /var/log/pacman.log'
-#============================= common  ================================ 
+alias tmp='============================= common  ================================' 
 #alias rd="redshift -P -O 6800K"
 alias usbp1='sudo chmod -R a+rwX,o-w '
 alias usbp2='sudo chown -R $USER:$USER '
