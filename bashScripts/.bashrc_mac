@@ -1,5 +1,5 @@
 
-export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
+export PS1="%B%{$fg[red]%}[%{$fg[blue]%}%n%{$fg[green]%}@%{$fg[yellow]%}%M %{$fg[blue]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 export GREP_COLOR="1;32"
 export FZF_DEFAULT_COMMAND='find .'

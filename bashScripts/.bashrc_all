@@ -1,12 +1,17 @@
 
-
 HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=20000
 HISTFILESIZE=20000
 
 #export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
-export PS1="\[\e[34m\] \w\[\e[m\]\[\e[33m\] \[\e[m\] "
+export PS1="\[\e[34m\] \w\[\e[m\]\[\e[31m\] \[\e[m\] "
 ZPS1="%B%{$fg[red]%}[%{$fg[blue]%}%n%{$fg[green]%}@%{$fg[yellow]%}%M %{$fg[blue]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+
+#=========== for tty ===============
+if [[ "$TERM" = "linux" || "$TERM" = "screen" ]]; then
+    export PS1=" \[\e[34m\]\w\[\e[m\] \[\e[31m\]>\[\e[m\]\[\e[31m\]>\[\e[m\] "
+fi;
+source ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/tty-black.sh
 
 export GREP_COLOR="1;32"
 export BAT_THEME="OneHalfDark"
