@@ -1,7 +1,7 @@
 ============ clear Recent files  ===================
 rm ~/.local/share/recently-used.xbe*
 touch ~/.local/share/recently-used.xbel
-============ clear logs ============================
+============ clear logs ==========================
 su 
 > /var/log/wtmp
 > /var/log/btmp
