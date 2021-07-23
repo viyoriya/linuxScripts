@@ -20,4 +20,5 @@ if [ "$TERM" = "linux" ]; then
     echo -en "\e]PE71bebe" #cyan
     echo -en "\e]PFffffff" #white
     #clear     #for background artifacting
+    echo "" && echo ""
 fi
