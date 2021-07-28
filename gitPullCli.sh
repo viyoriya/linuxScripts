@@ -2,13 +2,14 @@
 
 # Init : github.com/viyoriya
 
-# find all the git repos excluding .tmux or .cache or .config
+cwd=$PWD
+R_LIST=gitRepoList.txt
+
+#===== find all the git repos excluding .tmux or .cache or .config ===
 #find ~/ \( -name .tmux -o -name .cache -o -name .config \) -prune -false -o -name .git -printf '%h\n' > gitRepoList.txt
 
-# find all the git repos  
-find ~/ -name .git -printf '%h\n' > gitRepoList.txt
-
-R_LIST=gitRepoList.txt
+#=====  find all the git repos =====
+find ~/ -name .git -printf '%h\n' > $R_LIST
 
 if [[ ! -f "$R_LIST" ]]; then
     echo "==================================="
@@ -19,11 +20,10 @@ fi
 
 while read dir; do
     
-    dir=$HOME$dir
     if [[ -d $dir ]]; then
         cd $dir && git pull &&  echo "$PWD == Update done !!!"
     fi    
 
 done < $R_LIST
 
-rm $R_LIST
+rm $cwd/$R_LIST
