@@ -1,0 +1,10 @@
+https://www.reddit.com/r/artixlinux/comments/s3p380/audio_not_working_pipewire_and_runit/htl6cvr/?context=3
+
+pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack wireplumber
+cp /usr/share/pipewire/pipewire* /etc/pipewire
+edit the /etc/pipewire/pipewire.conf file
+    go to the final option, context.exec = [...]
+    add the following lines inside the ...
+        { path = "/usr/bin/wireplumber" args = "" }
+        { path = "/usr/bin/pipewire" args = "-c pipewire-pulse.conf" }
+add 'pipewire &' in .xinitrc

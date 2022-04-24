@@ -43,10 +43,6 @@ function vj_xdo {
         xdo show "$id"
 }
 
-function tree {
-    br -c :pt "$@"
-}
-
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
 alias tmp='============================= System  ================================'
@@ -59,6 +55,7 @@ alias inxi='inxi -Fxzc0'
 alias ls='ls -lahX --color=auto -I "." -I ".." --group-directories-first'
 alias lst='ls -latr --color=auto --group-directories-first'
 alias grep='grep --color=auto'
+alias ncdu='ncdu -x --color dark'
 alias cls='printf "\033c"'
 alias fd='sudo find / -name '
 alias gr='sudo grep -iRl'
@@ -94,6 +91,7 @@ alias tldr='f() { curl cheat.sh/$1; };f'
 alias fz='nvim -p $(fzf)'
 alias zathura='vj_xdo zathura'
 alias feeh='vj_xdo feh'
+alias code='codium'
 
 alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
 alias proj='cd ~/Documents/GIT_PROJECTS/'
@@ -104,8 +102,4 @@ alias dmenuc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dmenu/config.h'
 alias stc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/st/config.h'
 #alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
 
-source /home/vj/.config/broot/launcher/bash/br
-alias brh="\br -Shp --height 50"
-alias br="\br -Sp --height 50"
 alias exa="exa -la --group-directories-first"
-
