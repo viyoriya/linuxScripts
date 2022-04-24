@@ -46,6 +46,7 @@ function vj_xdo {
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
 alias tmp='============================= System  ================================'
+alias dmesg='sudo dmesg -wH'
 alias du='du -h --max-depth=1 | sort -hr'
 alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
 alias blkid='sudo blkid'
