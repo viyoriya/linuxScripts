@@ -3,15 +3,19 @@ HISTCONTROL=ignoredups:ignorespace
 HISTSIZE=20000
 HISTFILESIZE=20000
 
-#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
+#======================================================================
+#============================= for TTY ================================
 export PS1="\[\e[34m\] \w\[\e[m\]\[\e[31m\] \[\e[m\] "
-ZPS1="%B%{$fg[red]%}[%{$fg[blue]%}%n%{$fg[green]%}@%{$fg[yellow]%}%M %{$fg[blue]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
+#======================================================================
+ZPS1="%b %{$fg[blue]%}%~%{$fg[green]%} %{$reset_color%}%b "
 
-#=========== for tty ===============
 if [[ "$TERM" = "linux" || "$TERM" = "screen" ]]; then
     export PS1=" \[\e[34m\]\w\[\e[m\] \[\e[31m\]>\[\e[m\]\[\e[31m\]>\[\e[m\] "
+    source ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/tty-black.sh
 fi;
-source ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/tty-black.sh
+
+#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
+#ZPS1="%B%{$fg[red]%}[%{$fg[blue]%}%n%{$fg[green]%}@%{$fg[yellow]%}%M %{$fg[blue]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 export EDITOR="nvim"
 export GREP_COLOR="1;32"
@@ -29,7 +33,10 @@ export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --b
 alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_all'
 alias lsgit='lsalias | grep git'
 alias lspac='lsalias | grep pac'
-alias tmp='============================= functions  ============================='
+
+#======================================================================
+#============================= Function's =============================
+#======================================================================
 up() { cd $(eval printf '../'%.0s {1..$1}); }
 
 function vj_mkgitrepo {
@@ -45,7 +52,9 @@ function vj_xdo {
 
 alias lsfunc='declare -F | grep 'vj_''
 alias lsfuncName='compgen -A function | grep 'vj_''
-alias tmp='============================= System  ================================'
+#======================================================================
+#============================= System  ================================
+#======================================================================
 alias dmesg='sudo dmesg -wH'
 alias du='du -h --max-depth=1 | sort -hr'
 alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
@@ -58,11 +67,14 @@ alias lst='ls -latr --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias ncdu='ncdu -x --color dark'
 alias cls='printf "\033c"'
+alias clss='printf "\033c" && tput civis'
 alias diff='diff --color=always --side-by-side '
 alias fd='sudo find / -name '
 alias gr='sudo grep -iRl'
 alias hp='htop -u nobody'
-alias tmp='============================= git ===================================='
+#======================================================================
+#============================= git ====================================
+#======================================================================
 alias gita='git add '
 alias gitr='git rm '
 alias gitc='git commit -m'
@@ -76,32 +88,42 @@ alias gitm='git ls-files -m'
 alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
 alias gito='git config --get remote.origin.url'
 alias gitst='git stash'
-alias tmp='============================= tmux  ==================================' 
+#======================================================================
+#============================= tmux  ==================================
+#======================================================================
 alias tsr='tmux kill-server'
 alias tsa='tmux kill-session -a'
 alias tst='tmux kill-session -t '
 alias tls='tmux list-sessions'
 #alias tk='pkill -f tmux'
-alias tmp='============================= pacman  ================================' 
+#======================================================================
+#============================= pacman  ================================
+#======================================================================
 alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
 alias pacls='grep -i installed /var/log/pacman.log'
-alias tmp='============================= common  ================================' 
+alias pacUnlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
+alias pacCleanup='sudo pacman -Rns $(pacman -Qtdq)'
+
+#======================================================================
+#============================= common  ================================
+#======================================================================
+alias co='sudo chown -R $USER:$USER '
+alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
 #alias rd="redshift -P -O 6800K"
-alias usbp1='sudo chmod -R a+rwX,o-w '
-alias usbp2='sudo chown -R $USER:$USER '
+#alias usbp1='sudo chmod -R a+rwX,o-w '
 alias tldr='f() { curl cheat.sh/$1; };f'
 alias fz='nvim -p $(fzf)'
 alias zathura='vj_xdo zathura'
 alias feeh='vj_xdo feh'
 alias code='codium'
+alias exa="exa -la --group-directories-first"
 
-alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
 alias proj='cd ~/Documents/GIT_PROJECTS/'
-alias smi='sudo make install'
+alias smi='make clean && make && sudo make install'
 alias dwmd='cd ~/Documents/GIT_PROJECTS/wm/suckless/dwm/'
-alias dwmc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dwm/config.h'
-alias dmenuc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dmenu/config.h'
-alias stc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/st/config.h'
+#alias dwmc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dwm/config.h'
+#alias dmenuc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dmenu/config.h'
+#alias stc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/st/config.h'
 #alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
 
-alias exa="exa -la --group-directories-first"
+
