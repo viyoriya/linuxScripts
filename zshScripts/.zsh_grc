@@ -9,7 +9,7 @@ then
     alias g++='colourify g++'
     alias diff='colourify diff'
     alias ss='colourify ss -ntr'
-    alias ip='colourify ip maddr'
+    alias ip='colourify ip addr'
     alias ping='colourify ping'
     alias traceroute='colourify /usr/sbin/traceroute'
     alias head='colourify head'

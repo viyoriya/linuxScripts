@@ -89,9 +89,6 @@ alias gitst='git stash'
 #============================= tmux  ==================================
 #======================================================================
 alias tm_ks='tmux kill-server'
-alias tm_ksa='tmux kill-session -a'
-alias tm_kst='tmux kill-session -t '
-alias tm_ls='tmux list-sessions'
 alias tm_kill='pkill -f tmux'
 #======================================================================
 #============================= pacman  ================================
@@ -107,13 +104,11 @@ alias pacCleanup='sudo pacman -Rns $(pacman -Qtdq)'
 alias co='sudo chown -R $USER:$USER '
 alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
 #alias rd="redshift -P -O 6800K"
-#alias usbp1='sudo chmod -R a+rwX,o-w '
 alias tldr='f() { curl cheat.sh/$1; };f'
 alias fz='nvim -p $(fzf)'
 alias zathura='vj_xdo zathura'
 alias feeh='vj_xdo feh'
 alias code='codium'
-alias exa="exa -la --group-directories-first"
 
 alias proj='cd ~/Documents/GIT_PROJECTS/'
 alias smi='make clean && make && sudo make install'
