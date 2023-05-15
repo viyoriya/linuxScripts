@@ -1,0 +1,36 @@
+
+
+export JAVA_HOME=/usr/lib/jvm/default
+#export JAVA_HOME=/usr/lib64/jvm/java-8-openjdk
+export M2_HOME=/home/vj/SOFTWARE/apache-maven-3.8.1
+export GRADLE_USER_HOME=/home/vj/SOFTWARE/gradleRepo
+export SPARK_HOME=/opt/spark-3.4.0-bin-hadoop3
+
+export PATH=$PATH:$JAVA_HOME/bin
+export PATH=$PATH:$M2_HOME/bin
+export PATH=$PATH:/opt/gradle/gradle-6.2.2/bin
+export PATH=$PATH:$SPARK_HOME/bin
+export PATH=$PATH:$SPARK_HOME/sbin
+
+export PATH=$PATH:~/SOFTWARE/NODE_JS/current/bin
+
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
+[[ -f ~/Documents/GIT_PROJECTS/linuxScripts/zshScripts/.zsh_grc ]] && source ~/Documents/GIT_PROJECTS/linuxScripts/zshScripts/.zsh_grc
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+
+export VISUAL="nvim"
+
+export FFF_HIDDEN=0
+export FFF_FAV1=~/
+export FFF_FAV2=~/Documents/GIT_PROJECTS/wm/suckless/dwm/
+export FFF_FAV3=~/Documents/GIT_PROJECTS/wm/suckless/st/
+export FFF_FAV4=~/Documents/GIT_PROJECTS/extra/trade/code/
+export FFF_FILE_FORMAT=" %f"
+export FFF_STAT_CMD="ls" #"stat"
+#export FFF_KEY_ATTRIBUTES="x"
+f() {
+    fff "$@"
+    cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}

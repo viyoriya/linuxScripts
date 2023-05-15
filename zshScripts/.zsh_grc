@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+if [ "$TERM" != dumb ] 
+then
+    alias colourify="grc -es --colour=auto"
+    alias configure='colourify ./configure'
+    alias make='colourify make'
+    alias gcc='colourify gcc'
+    alias g++='colourify g++'
+    alias diff='colourify diff'
+    alias ss='colourify ss -ntr'
+    alias ip='colourify ip maddr'
+    alias ping='colourify ping'
+    alias traceroute='colourify /usr/sbin/traceroute'
+    alias head='colourify head'
+    alias tail='colourify tail'
+    alias mount='colourify mount'
+    alias ps='colourify ps'
+    alias df='colourify df'
+    alias free='colourify free'    
+    alias findmnt='colourify findmnt'
+    alias lspci='colourify lspci'
+#    alias lsblk='colourify lsblk'
+    alias curl='colourify curl'
+    alias systemctl='colourify systemctl'
+fi
+
+
+alias disks='echo "╓───── m o u n t . p o i n t s"; \
+			 echo "╙────────────────────────────────────── ─ ─ "; \
+			 lsblk -a; echo ""; \
+			 echo "╓───── d i s k . u s a g e";\
+			 echo "╙────────────────────────────────────── ─ ─ "; \
+			 df -h;'

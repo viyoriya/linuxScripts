@@ -1,21 +1,17 @@
 
-HISTCONTROL=ignoredups:ignorespace
-HISTSIZE=20000
-HISTFILESIZE=20000
 
 #======================================================================
 #============================= for TTY ================================
-export PS1="\[\e[34m\] \w\[\e[m\]\[\e[31m\] \[\e[m\] "
+   export PS1="%F{blue}%~%B%F{red} >>%F{reset}%b "
 #======================================================================
-ZPS1="%b %{$fg[blue]%}%~%{$fg[green]%} %{$reset_color%}%b "
+#ZPS1="%b %{$fg[blue]%}%~%{$fg[green]%} %{$reset_color%}%b "
+ZPS1="%F{blue}%~%B%F{red} %F{reset}%b "
 
 if [[ "$TERM" = "linux" || "$TERM" = "screen" ]]; then
-    export PS1=" \[\e[34m\]\w\[\e[m\] \[\e[31m\]>\[\e[m\]\[\e[31m\]>\[\e[m\] "
-    source ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/tty-black.sh
+#    export PS1=" \[\e[34m\]\w\[\e[m\] \[\e[31m\]>\[\e[m\]\[\e[31m\]>\[\e[m\] "
+    export PS1="%F{blue}%~%B%F{red} >>%F{reset}%b "
+    source ~/Documents/GIT_PROJECTS/linuxScripts/zshScripts/tty-black.sh
 fi;
-
-#export PS1=" \[\e[34m\]\w\[\e[m\]\[\e[1;34m\]  \[\e[00m\] "
-#ZPS1="%B%{$fg[red]%}[%{$fg[blue]%}%n%{$fg[green]%}@%{$fg[yellow]%}%M %{$fg[blue]%}%~%{$fg[red]%}]%{$reset_color%}$%b "
 
 export EDITOR="nvim"
 export GREP_COLOR="1;32"
@@ -25,12 +21,11 @@ export XDG_CONFIG_HOME=$HOME/.config
 export _JAVA_AWT_WM_NONREPARENTING=1
 export NO_AT_BRIDGE=1
 
-export PKG_CONFIG_PATH=/usr/lib64/pkgconfig:/usr/share/pkgconfig
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --border=sharp --inline-info --ansi'
 #export FZF_CTRL_T_COMMAND='nvim "${FZF_DEFAULT_COMMAND}"'
 
-alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/bashScripts/.bashrc_all'
+alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/zshScripts/.zshrc_all'
 alias lsgit='lsalias | grep git'
 alias lspac='lsalias | grep pac'
 alias lstmux='lsalias | grep tm_' 
@@ -63,8 +58,9 @@ alias blkid='sudo blkid'
 alias fdisk='sudo fdisk -l'
 alias parted='sudo parted -l'
 alias inxi='inxi -Fxzc0'
-alias ls='ls -lahX --color=auto -I "." -I ".." --group-directories-first'
-alias lst='ls -latr --color=auto --group-directories-first'
+#alias ls='ls -lahX --color=auto -I "." -I ".." --group-directories-first'
+alias ls="exa -la --group-directories-first"
+alias lst='ls -lah --color=auto --group-directories-first'
 alias grep='grep --color=auto'
 alias ncdu='ncdu -x --color dark'
 alias cls='printf "\033c"'
@@ -122,9 +118,5 @@ alias exa="exa -la --group-directories-first"
 alias proj='cd ~/Documents/GIT_PROJECTS/'
 alias smi='make clean && make && sudo make install'
 alias dwmd='cd ~/Documents/GIT_PROJECTS/wm/suckless/dwm/'
-#alias dwmc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dwm/config.h'
-#alias dmenuc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/dmenu/config.h'
-#alias stc='nvim ~/Documents/GIT_PROJECTS/wm/suckless/st/config.h'
-#alias pcp='echo $(pkg-config --variable pc_path pkg-config)'
 
 
