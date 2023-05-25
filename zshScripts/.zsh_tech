@@ -17,16 +17,18 @@ export PATH=$PATH:~/SOFTWARE/NODE_JS/current/bin
 [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
 [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
 
-[[ -f ~/Documents/GIT_PROJECTS/linuxScripts/zshScripts/.zsh_grc ]] && source ~/Documents/GIT_PROJECTS/linuxScripts/zshScripts/.zsh_grc
+[[ -f ~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/.zsh_grc ]] && source ~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/.zsh_grc
 [[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
 
+export EDITOR="nvim"
 export VISUAL="nvim"
 
 export FFF_HIDDEN=0
 export FFF_FAV1=~/
 export FFF_FAV2=~/Documents/GIT_PROJECTS/wm/suckless/dwm/
 export FFF_FAV3=~/Documents/GIT_PROJECTS/wm/suckless/st/
-export FFF_FAV4=~/Documents/GIT_PROJECTS/extra/trade/code/
+export FFF_FAV4=~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/
+export FFF_FAV5=~/Documents/GIT_PROJECTS/extra/trade/code/
 export FFF_FILE_FORMAT=" %f"
 export FFF_STAT_CMD="ls" #"stat"
 #export FFF_KEY_ATTRIBUTES="x"
@@ -34,3 +36,14 @@ f() {
     fff "$@"
     cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
 }
+
+
+export NNN_BMS='h:~/;p:~/Documents/GIT_PROJECTS/;s:~/Documents/GIT_PROJECTS/wm/suckless/;z:~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/'
+export NNN_COLORS="6421"             
+
+
+if [ -f /usr/share/nnn/quitcd/quitcd.bash_zsh ]; then
+    source /usr/share/nnn/quitcd/quitcd.bash_zsh
+fi
+
+alias nnn='nnn -doCDHTU'

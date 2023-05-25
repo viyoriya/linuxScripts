@@ -5,16 +5,17 @@
    export PS1="%F{blue}%~%B%F{red} >>%F{reset}%b "
 #======================================================================
 #ZPS1="%b %{$fg[blue]%}%~%{$fg[green]%} %{$reset_color%}%b "
-ZPS1="%F{blue}%~%B%F{red} %F{reset}%b "
+#ZPS1="%F{blue}%~%B%F{red} %F{reset}%b "
+ZPS1="%F{blue}%~%B%F{red} >>%F{reset}%b "
 
 if [[ "$TERM" = "linux" || "$TERM" = "screen" ]]; then
 #    export PS1=" \[\e[34m\]\w\[\e[m\] \[\e[31m\]>\[\e[m\]\[\e[31m\]>\[\e[m\] "
     export PS1="%F{blue}%~%B%F{red} >>%F{reset}%b "
-    source ~/Documents/GIT_PROJECTS/linuxScripts/zshScripts/tty-black.sh
+    source ~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/tty-black.sh
 fi;
 
 export EDITOR="nvim"
-export GREP_COLOR="1;32"
+export GREP_COLOR="mt=1;32"
 export BAT_THEME="OneHalfDark"
 
 export XDG_CONFIG_HOME=$HOME/.config
@@ -25,7 +26,7 @@ export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --border=sharp --inline-info --ansi'
 #export FZF_CTRL_T_COMMAND='nvim "${FZF_DEFAULT_COMMAND}"'
 
-alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/linuxScripts/zshScripts/.zshrc_all'
+alias lsalias='grep "alias" ~/Documents/GIT_PROJECTS/viyoriya/inuxScripts/zshScripts/.zshrc_all'
 alias lsgit='lsalias | grep git'
 alias lspac='lsalias | grep pac'
 alias lstmux='lsalias | grep tm_' 
@@ -95,14 +96,14 @@ alias tm_kill='pkill -f tmux'
 #======================================================================
 alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
 alias pacls='grep -i installed /var/log/pacman.log'
-alias pacUnlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
+alias pacDbUnlock='sudo rm /var/lib/pacman/db.lck'    # remove pacman lock
 alias pacCleanup='sudo pacman -Rns $(pacman -Qtdq)'
-
+alias pacUpdate='pkill -RTMIN+1 dwmblocks'
 #======================================================================
 #============================= common  ================================
 #======================================================================
 alias co='sudo chown -R $USER:$USER '
-alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/linuxScripts/tubescript.py'
+alias neofetch='/usr/bin/neofetch && python3 ~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/tubescript.py'
 #alias rd="redshift -P -O 6800K"
 alias tldr='f() { curl cheat.sh/$1; };f'
 alias fz='nvim -p $(fzf)'
@@ -110,8 +111,10 @@ alias zathura='vj_xdo zathura'
 alias feeh='vj_xdo feh'
 alias code='codium'
 
-alias proj='cd ~/Documents/GIT_PROJECTS/'
 alias smi='make clean && make && sudo make install'
+alias proj='cd ~/Documents/GIT_PROJECTS/'
+alias projv='cd ~/Documents/GIT_PROJECTS/viyoriya/'
 alias dwmd='cd ~/Documents/GIT_PROJECTS/wm/suckless/dwm/'
+alias sld='cd ~/Documents/GIT_PROJECTS/wm/suckless/'
 
 
