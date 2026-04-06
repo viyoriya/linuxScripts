@@ -1,0 +1,143 @@
+#export CLICOLOR=1
+
+export GPG_TTY=$(tty)
+#export GPG_TTY=$TTY
+export XDG_CONFIG_HOME=$HOME/.config
+export XDG_DATA_HOME=$HOME/.local/share
+export XDG_STATE_HOME=$HOME/.local/state
+export XDG_CACHE_HOME=$HOME/.cache
+
+export PASSWORD_STORE_DIR="$XDG_DATA_HOME"/.password-store
+export PASSWORD_STORE_CLIP_TIME=15
+export PASSWORD_STORE_X_SELECTION="clipboard"
+
+export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
+export GREP_COLOR="mt=1;32"
+
+SCRIPTS_PATH="$HOME/Documents/GIT_PROJECTS/viyoriya/linuxScripts"
+ZSCRIPT_PATH="$SCRIPTS_PATH/zshScripts/.zshrc_all"
+
+#======================================================================
+#============================= for TTY ================================
+export PS1="%F{blue}%~%B%F{red} >>%F{reset}%b "
+#======================================================================
+#ZPS1="%b %{$fg[blue]%}%~%{$fg[green]%} %{$reset_color%}%b "
+#ZPS1="%F{blue}%~%B%F{red} %F{reset}%b "
+ZPS1="%F{blue}%~%B%F{red} >>%F{reset}%b "
+
+if [[ "$TERM" = "linux" || "$TERM" = "screen" ]]; then
+  #    export PS1=" \[\e[34m\]\w\[\e[m\] \[\e[31m\]>\[\e[m\]\[\e[31m\]>\[\e[m\] "
+  export PS1="%F{blue}%~%B%F{red} >>%F{reset}%b "
+  source $SCRIPTS_PATH/zshScripts/tty-black.sh
+fi
+
+alias lsalias='GREP_COLORS="ms=32" grep --color=always -E "^alias " "$ZSCRIPT_PATH"'
+alias lsgit='GREP_COLORS="ms=34" grep --color=always -E "^alias git" "$ZSCRIPT_PATH"'
+alias lspac='GREP_COLORS="ms=35" grep --color=always -E "^alias pac" "$ZSCRIPT_PATH"'
+alias lstmux='GREP_COLORS="ms=34" grep --color=always -E "^alias tm_" "$ZSCRIPT_PATH"'
+#alias lsfunc='declare -F | grep 'vj_''
+#alias lsfuncName='compgen -A function | grep 'vj_''
+
+#======================================================================
+#============================= Function's =============================
+#======================================================================
+
+lspath() { tr ':' '\n' <<<"$PATH"; }
+up() { cd $(printf "%0.s../" {1..${1:-1}}); }
+
+vj_xdo() {
+  local id=$(xdo id)
+  xdo hide "$id"
+  "$@" >/dev/null 2>&1
+  xdo show "$id"
+}
+
+#pacSccDel() {
+#	sudo rm -r /var/cache/pacman/pkg/download-*/ 2>/dev/null
+#	yay -Scc
+#}
+
+#pacSccDel() { sudo rm -rf /var/cache/pacman/pkg/download-*(N) && yay -Scc && dmenuUpdate }
+#thinkMic() { echo 0 | sudo tee /sys/class/leds/platform::micmute/brightness >/dev/null; }
+
+#======================================================================
+#============================= System  ================================
+#======================================================================
+alias wget="wget --hsts-file=$XDG_DATA_HOME/.wget-hsts"
+alias dmesg='sudo dmesg -wH'
+alias du='du -h --max-depth=1 | sort -hr'
+alias lsblk='lsblk -o NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,UUID'
+alias blkid='sudo blkid'
+alias fdisk='sudo fdisk -l'
+alias parted='sudo parted -l'
+alias inxi='inxi -Fxzc0'
+alias tree='tree -C'
+#alias ls='ls -lahX --color=auto -I "." -I ".." --group-directories-first'
+alias ls="eza -la --group-directories-first"
+#alias ls="eza -la --group-directories-first --icons=auto"
+alias lst='ls -F -lah --color=auto --group-directories-first'
+alias grep='grep --color=auto'
+alias ncdu='ncdu -x --color dark'
+alias cls='printf "\033c"'
+alias clss='printf "\033c" && tput civis'
+alias diff='diff --color=always --side-by-side '
+alias fd='sudo find / -name '
+alias gr='sudo grep -iRl'
+alias hp='htop -u nobody'
+
+#======================================================================
+#============================= git ====================================
+#======================================================================
+alias gita='git add '
+alias gitr='git rm '
+alias gitc='git commit -m'
+alias gitd='git diff --color-words'
+alias gitp="git push origin master"
+alias gitpu="git pull origin master"
+alias gitl='git log --graph --oneline --decorate'
+alias gits='git status -sb'
+alias gitsls='git status --porcelain'
+alias gitm='git ls-files -m'
+alias giti='echo; git log -n 12 --graph --oneline --decorate; echo; git status; echo'
+alias gito='git config --get remote.origin.url'
+alias gitst='git stash'
+#======================================================================
+#============================= tmux  ==================================
+#======================================================================
+alias tm_ks='tmux kill-server'
+alias tm_kill='pkill -f tmux'
+#======================================================================
+#======================== pacman & yay ================================
+#======================================================================
+alias yayTui='yay -Slq | fzf --multi --preview "yay -Si {1}" | xargs -ro yay -S'
+alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
+alias pacls='grep -i installed /var/log/pacman.log'
+alias pacUnlockDB='sudo rm /var/lib/pacman/db.lck' # remove pacman lock
+#alias pacCleanup='sudo pacman -Rns $(pacman -Qtdq)'
+alias dmenuUpdate='pkill -RTMIN+1 dwmblocks'
+alias pacScc='sudo pacman -Scc'
+alias pacSyyu='sudo pacman -Syyu && dmenuUpdate'
+alias pacSccDel='sudo rm -rf /var/cache/pacman/pkg/download-*(N) && yay -Scc && dmenuUpdate'
+#======================================================================
+#============================= common  ================================
+#======================================================================
+alias co='sudo chown -R $USER:$USER '
+alias smi='make clean && make && sudo make install'
+alias neofetch='/usr/bin/neofetch && python3 $SCRIPTS_PATH/tubescript.py'
+#alias rd="redshift -P -O 6800K"
+alias tldr='f() { curl cheat.sh/$1; };f'
+alias fnvim='nvim -p $(fzf)'
+alias fhx='hx $(fzf)'
+alias zathura='vj_xdo zathura'
+alias feeh='vj_xdo feh'
+alias tty-clock='tty-clock -cC 2'
+
+alias proj='cd ~/Documents/GIT_PROJECTS/'
+alias proz='cd $SCRIPTS_PATH/zshScripts/'
+alias prov='cd ~/Documents/GIT_PROJECTS/viyoriya/'
+alias prow='cd ~/Documents/GIT_PROJECTS/wm/'
+alias pros='cd ~/Documents/GIT_PROJECTS/wm/suckless/'
+alias dwmd='cd ~/Documents/GIT_PROJECTS/wm/suckless/dwm/'
+
+alias vscd="sudo rm /usr/share/applications/codium-wayland.desktop"
+alias vsc="sudo sed -i 's/Categories=Utility;Development;IDE;/Categories=TextEditor;Development;IDE;/' /usr/share/applications/codium.desktop"

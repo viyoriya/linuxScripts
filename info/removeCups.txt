@@ -1,0 +1,10 @@
+#!/usr/bin/env sh
+
+#systemctl --reverse list-dependencies cups-browsed.service
+#sudo mv cups-browsed.service ~/Documents/
+#sudo systemctl status cups-browsed.service
+
+sudo systemctl stop cups-browsed.service
+sudo systemctl disable cups-browsed.service
+sudo eopkg rm --ignore-dependency cups
+sudo eopkg rm --ignore-dependency cups-filters

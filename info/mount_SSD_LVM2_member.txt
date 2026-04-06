@@ -1,0 +1,16 @@
+
+sudo pacman -S lvm2
+
+check
+======
+lvmdiskscan
+lvscan
+
+if inactive then activate lvm volume
+====================================
+vgchange -ay
+lvscan
+
+now you can mount
+
+

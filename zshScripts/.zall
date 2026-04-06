@@ -1,0 +1,7 @@
+
+if [ -f ~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/.zalias ]; then
+    . ~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/.zalias
+fi
+if [ -f ~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/.ztech ]; then
+    . ~/Documents/GIT_PROJECTS/viyoriya/linuxScripts/zshScripts/.ztech
+fi

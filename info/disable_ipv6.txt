@@ -1,0 +1,29 @@
+sudo nvim /etc/sysctl.conf
+
+# Add the following lines to the bottom of the file:
+
+net.ipv6.conf.all.disable_ipv6 = 1
+net.ipv6.conf.default.disable_ipv6 = 1
+net.ipv6.conf.lo.disable_ipv6 = 1
+
+# Save and exit
+# Apply the changes:
+
+sudo sysctl -p
+
+# Check
+
+ip a | grep inet6
+
+cat /sys/module/ipv6/parameters/disable
+
+0: IPv6 is enabled
+1: IPv6 is not enabled
+
+sysctl -a 2>/dev/null | grep disable_ipv6
+
+if you see 0, then it is enabled, else it is not.
+
+check
+ip -6 addr
+ip addr show dev wlan0 | sed -e's/^.*inet6 \([^ ]*\)\/.*$/\1/;t;d'

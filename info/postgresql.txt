@@ -1,0 +1,21 @@
+check the status
+	sudo systemctl status postgresql
+if its not started then
+	sudo systemctl start postgresql
+check status again
+	sudo systemctl status postgresql
+find the host/ip and port
+
+steps to create user/db/roles (viyoriya/viyoriya is a username plz update with yours)
+	sudo -u postgres psql
+(you will get postgres=# then create all this stuff)
+	create database test;
+	create user viyoriya with encrypted password 'viyoriya';
+	grant all privileges on database test to viyoriya;
+connect to the db
+	psql -h 127.0.0.1 -p 5432 -U viyoriya test
+	\pset format aligned
+	SELECT version();
+then u can create table etc etc...
+To stop
+	sudo systemctl stop postgresql

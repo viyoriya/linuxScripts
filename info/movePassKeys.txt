@@ -1,0 +1,11 @@
+gpg --homedir solus/ --export -a viyoriya > solus-public-key.asc
+gpg --homedir solus/ --export-secret-keys -a viyoriya > solus-private-key.asc
+
+gpg --homedir SOCIAL/ --import solus-private-key.asc
+gpg --homedir SOCIAL/ --import solus-public-key.asc
+
+gpg --homedir SOCIAL/ --edit-key viyoriya
+
+type: trust
+choose : 5
+type : quit

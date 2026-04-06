@@ -1,0 +1,45 @@
+SCRIPTS_PATH="$HOME/Documents/GIT_PROJECTS/viyoriya/linuxScripts"
+
+[ -d "$GOPATH/telemetry/local" ] && rm -r "$GOPATH/telemetry/local"
+[ -d "$GOPATH/telemetry/upload" ] && rm -r "$GOPATH/telemetry/upload"
+
+# ==== zsh =================================
+# source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+[[ -f $SCRIPTS_PATH/zshScripts/.zgrc ]] && source $SCRIPTS_PATH/zshScripts/.zgrc
+[[ -s "/etc/grc.zsh" ]] && source /etc/grc.zsh
+
+# ==== fzf  ================================
+[ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+[ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+
+fcd() { cd "$(find | fzf)"; }
+o() { cd "$(find | fzf)"; }
+
+# ==== yazi ================================
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  yazi "$@" --cwd-file="$tmp"
+  if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+    builtin cd -- "$cwd"
+  fi
+  rm -f -- "$tmp"
+}
+
+# ==== fff =================================
+f() {
+  fff "$@"
+  cd "$(cat "${XDG_CACHE_HOME:=${HOME}/.cache}/fff/.fff_d")"
+}
+
+alias runWU='~/Documents/TRADE/polymarket/WU/runWUAll'
+alias prop='cd ~/Documents/TRADE/polymarket/'
+
+# Run once per reboot
+#REBOOT_FLAG="/dev/shm/$USER_reboot_done"
+#if [[ ! -f $REBOOT_FLAG ]]; then
+#    pacman -
+#    echo "This is your first Zsh session since rebooting!"
+
+#    # Create the flag file in RAM
+#    touch $REBOOT_FLAG
+#fi

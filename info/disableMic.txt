@@ -1,0 +1,13 @@
+wpctl status
+
+1.Locate the Sources section: Look for the header labeled Sources.
+2.Identify the active device: The default microphone is marked with an asterisk (*) next to its ID.
+
+
+
+wpctl set-mute 54 1  # Force Mute (LED should stay ON)
+wpctl set-mute 54 0  # Force Unmute (LED should turn OFF)
+
+else
+=====
+echo 0 | sudo tee /sys/class/leds/platform::micmute/brightness
