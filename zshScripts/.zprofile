@@ -37,7 +37,7 @@ export QT_FONT_DPI=96
 export GTK2_RC_FILES="$XDG_CONFIG_HOME"/gtk-2.0/gtkrc
 
 export CM_HISTLENGTH=50
-export CM_DIR=~/.config/clipmenu/
+export CM_DIR="$XDG_CONFIG_HOME"/clipmenu/
 
 export BAT_THEME="OneHalfDark"
 
@@ -47,14 +47,10 @@ export BAT_THEME="OneHalfDark"
 export FZF_DEFAULT_COMMAND='find .'
 export FZF_DEFAULT_OPTS='-i -e --multi --cycle --height=40% --layout=reverse --border=sharp --inline-info --ansi --color=hl:#00ff00,hl+:#00ff00,pointer:#ffffff,info:#00ff00,marker:#00ff00,header:#00ff00,bg+:6,fg+:15'
 
-export YAZI_CONFIG_HOME=$HOME/.config/yazi
+export YAZI_CONFIG_HOME="$XDG_CONFIG_HOME"/yazi
 
 export FFF_HIDDEN=0
 export FFF_FAV1=~/
-export FFF_FAV2=~/Documents/GIT_PROJECTS/wm/suckless/dwm/
-export FFF_FAV3=~/Documents/GIT_PROJECTS/wm/suckless/st/
-export FFF_FAV4=$SCRIPTS_PATH/zshScripts/
-export FFF_FAV5=~/Documents/GIT_PROJECTS/extra/trade/code/
 export FFF_FILE_FORMAT=" %f"
 export FFF_STAT_CMD="ls" #"stat"
 #export FFF_KEY_ATTRIBUTES="x"
@@ -68,16 +64,17 @@ export M2_HOME=/opt/apache-maven-3.9.10
 export KAFKA_HOME=/opt/kafka_2.13-4.0.0
 export SPARK_HOME=/opt/spark-4.0.0-bin-hadoop3
 export GO_HOME=/usr/lib/go
-export RUSTUP_HOME=/home/vj/.config/rust/.rustup
-export CARGO_HOME=/home/vj/.config/rust/.cargo
+export RUSTUP_HOME="$XDG_CONFIG_HOME"/rust/.rustup
+export CARGO_HOME="$XDG_CONFIG_HOME"/rust/.cargo
+export LM_STUDIO_HOME="$XDG_CONFIG_HOME"/.lmstudio
 
 # === npm ==================================
-export NPM_CONFIG_USERCONFIG="$HOME/.config/npm/.npmrc"
+export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME"/npm/.npmrc
 export NPM_CONFIG_INIT_MODULE="$XDG_CONFIG_HOME"/npm/config/npm-init.js
 export NPM_CONFIG_CACHE="$XDG_CACHE_HOME"/npm
 
-# === go lang ==============================
-export GOPATH=/home/vj/.config/go
+# === go  ==============================
+export GOPATH="$XDG_CONFIG_HOME"/go
 export GOTELEMETRY=off
 
 export LOCAL_BIN_PATH=~/.local
@@ -91,5 +88,6 @@ export PATH=$PATH:$SPARK_HOME/sbin
 export PATH=$PATH:$GO_HOME/bin
 export PATH=$PATH:$CARGO_HOME/bin
 export PATH=$PATH:$XDG_DATA_HOME/npm/bin
+export PATH=$PATH:$LM_STUDIO_HOME/bin
 
 #export PATH="$(npm config get prefix)/bin:$PATH"

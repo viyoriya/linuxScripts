@@ -80,7 +80,8 @@ alias tm_kill='pkill -f tmux'
 #======================================================================
 alias yayTui='yay -Slq | fzf --multi --preview "yay -Si {1}" | xargs -ro yay -S'
 alias pacul='comm -23 <(pacman -Qqett | sort | uniq) <(pacman -Qqg base -g base-devel | sort | uniq)'
-alias pacls='grep -i installed /var/log/pacman.log'
+alias paclsi='grep -i installed /var/log/pacman.log'
+alias paclsr='grep -i removed /var/log/pacman.log'
 alias pacUnlockDB='sudo rm /var/lib/pacman/db.lck' # remove pacman lock
 #alias pacCleanup='sudo pacman -Rns $(pacman -Qtdq)'
 alias dmenuUpdate='pkill -RTMIN+1 dwmblocks'
@@ -100,6 +101,7 @@ alias fhx='hx $(fzf)'
 alias zathura='vj_xdo zathura'
 alias feeh='vj_xdo feh'
 alias tty-clock='tty-clock -cC 2'
+alias swissDown='sudo wg-quick down swiss'
 
 alias proj='cd ~/Documents/GIT_PROJECTS/'
 alias proz='cd $SCRIPTS_PATH/zshScripts/'
@@ -110,3 +112,7 @@ alias dwmd='cd ~/Documents/GIT_PROJECTS/wm/suckless/dwm/'
 
 alias vscd="sudo rm /usr/share/applications/codium-wayland.desktop"
 alias vsc="sudo sed -i 's/Categories=Utility;Development;IDE;/Categories=TextEditor;Development;IDE;/' /usr/share/applications/codium.desktop"
+
+# toggle to use LLMs for LM-Studio
+alias cpu-fast="echo performance | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
+alias cpu-slow="echo powersave | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/scaling_governor"
